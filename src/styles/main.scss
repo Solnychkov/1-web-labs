@@ -1,0 +1,14 @@
+@use "./base/reset" as *;
+@use "./base/fonts" as *;
+
+.container {
+  max-width: 1240px;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: black;
+}

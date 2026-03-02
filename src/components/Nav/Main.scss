@@ -1,0 +1,110 @@
+@use "../../styles/abstracts/variables" as *;
+
+.navbar {
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  height: 200px;
+  background-color: $color-white;
+  overflow: hidden;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 100%,
+    57% 60%,
+    45% 63.5%,
+    20% 83%,
+    0 60%
+  );
+
+  &__triangle {
+    position: absolute;
+    background-color: $color-blue;
+    height: 100%;
+    width: 100%;
+
+    &--left {
+      clip-path: polygon(0 24%, 20% 83%, 0 100%);
+    }
+
+    &--right {
+      right: 0;
+      clip-path: polygon(57% 60%, 82% 55%, 100% 13.5%, 100% 100%, 58% 100%);
+    }
+  }
+
+  &__inner {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    z-index: 1;
+  }
+
+  &__right {
+    padding-top: 15px;
+    display: flex;
+    gap: 25px;
+    align-items: start;
+  }
+
+  &__logo {
+    width: 244px;
+    display: block;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__link {
+    position: relative;
+    text-decoration: none;
+    color: $color-blue;
+    font-size: 16px;
+    white-space: nowrap;
+    font-weight: 00;
+    color: $color-blue;
+
+    &-line {
+      position: absolute;
+      bottom: -12px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: $color-orange;
+      transition: width 0.3s ease;
+    }
+
+    &--active,
+    &:hover {
+      .navbar__link-line {
+        width: 100%;
+      }
+    }
+  }
+
+  &__phone {
+    color: $color-orange;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    white-space: nowrap;
+    transition: transform 0.3s ease-in-out;
+    will-change: transform;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}

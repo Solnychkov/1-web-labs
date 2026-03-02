@@ -1,0 +1,48 @@
+@use "../../styles/abstracts/variables" as *;
+
+.hero {
+  &__bottom {
+    position: relative;
+    z-index: 40;
+
+    height: 200px;
+    width: 100%;
+    clip-path: polygon(
+      0 50%,
+      calc(390 / 1920) * 100% 50%,
+      calc(620 / 1920) * 100% 0,
+      calc(1 - 620 / 1920) * 100% 0,
+      calc(1 - 390 / 1920) * 100% 50%,
+      100% 50%,
+      100% 100%,
+      0 100%
+    );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+
+    background-color: $color-white;
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    &-body {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+
+      color: $color-blue;
+      font-size: $font-size-sm;
+    }
+
+    &-label {
+      font-weight: 900;
+      padding-bottom: 5px;
+    }
+  }
+}
