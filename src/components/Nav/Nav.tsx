@@ -17,6 +17,7 @@ const NAV_ITEMS: TNavItem[] = [
 
 export const NavComponent = () => {
   const [activeHref, setActiveHref] = useState<string>("#about");
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
     <header className="navbar">
@@ -58,6 +59,17 @@ export const NavComponent = () => {
             <a href="tel:88006001505" className="navbar__phone">
               8 800 600-15-05
             </a>
+
+            <button
+              className={`navbar__burger ${isOpen ? "navbar__burger--open" : ""}`}
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label="Меню"
+              aria-expanded={isOpen}
+            >
+              <span />
+              <span />
+              <span />
+            </button>
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 @use "./Slider" as *;
 @use "./Bottom" as *;
+@use "../../styles/abstracts/variables" as *;
 
 .hero {
   position: relative;
@@ -23,5 +24,11 @@
     object-position: center;
 
     pointer-events: none;
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .hero {
+    height: 970px;
   }
 }

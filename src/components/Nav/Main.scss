@@ -1,4 +1,7 @@
 @use "../../styles/abstracts/variables" as *;
+@use "../../styles/abstracts/mixins" as *;
+
+@use "./burger" as *;
 
 .navbar {
   position: fixed;
@@ -17,6 +20,17 @@
     0 60%
   );
 
+  @include mobile {
+    height: 120px;
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% calc(105 / 120) * 100%,
+      calc(233 / 390) * 100% 100%,
+      0 calc(105 / 120) * 100%
+    );
+  }
+
   &__triangle {
     position: absolute;
     background-color: $color-blue;
@@ -25,11 +39,23 @@
 
     &--left {
       clip-path: polygon(0 24%, 20% 83%, 0 100%);
+
+      @include mobile {
+        display: none;
+      }
     }
 
     &--right {
       right: 0;
       clip-path: polygon(57% 60%, 82% 55%, 100% 13.5%, 100% 100%, 58% 100%);
+
+      @include mobile {
+        clip-path: polygon(
+          calc(233 / 390) * 100% 100%,
+          100% calc(75 / 120) * 100%,
+          100% 100%
+        );
+      }
     }
   }
 
@@ -51,6 +77,10 @@
   &__logo {
     width: 244px;
     display: block;
+
+    @include mobile {
+      width: 172px;
+    }
 
     img {
       width: 100%;
