@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Main.scss";
 import Logo from "../../assets/images/Logo.svg";
 
@@ -19,8 +19,20 @@ export const NavComponent = () => {
   const [activeHref, setActiveHref] = useState<string>("#about");
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
+  const handleLinkClick = (href: string) => {
+    setActiveHref(href);
+    setIsOpen(false);
+  };
+
   return (
-    <header className="navbar">
+    <header className={`navbar ${isOpen ? "navbar--open" : ""}`}>
       <div
         className="navbar__triangle navbar__triangle--left"
         aria-hidden="true"
@@ -35,15 +47,19 @@ export const NavComponent = () => {
             <img src={Logo} alt="Сахара Груп" />
           </a>
 
-          <div className="navbar__right">
+          <div className={`navbar__right`}>
             <nav className="navbar__nav" aria-label="Основная навигация">
-              <ul className="navbar__list" role="list">
+              <ul
+                className="navbar__list"
+                key={isOpen ? "open" : "closed"}
+                role="list"
+              >
                 {NAV_ITEMS.map((item) => (
                   <li className="navbar__item" key={item.href}>
                     <a
                       href={item.href}
                       className={`navbar__link ${activeHref === item.href ? "navbar__link--active" : ""}`}
-                      onClick={() => setActiveHref(item.href)}
+                      onClick={() => handleLinkClick(item.href)}
                       aria-current={
                         activeHref === item.href ? "page" : undefined
                       }
@@ -61,7 +77,7 @@ export const NavComponent = () => {
             </a>
 
             <button
-              className={`navbar__burger ${isOpen ? "navbar__burger--open" : ""}`}
+              className={`navbar__burger`}
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Меню"
               aria-expanded={isOpen}

@@ -1,0 +1,55 @@
+@use "sass:color";
+
+@use "../../styles" as *;
+
+.hero {
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    color: $color-white;
+    font-weight: 700;
+  }
+
+  &__title {
+    font-size: $font-size-3xl;
+    line-height: 1.2;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.4);
+  }
+
+  &__subtitle {
+    font-size: $font-size-lg;
+    line-height: 1.5;
+  }
+
+  &__cta {
+    position: relative;
+    z-index: 2;
+
+    margin-bottom: 50px;
+    padding: 15px 40px;
+    border-radius: 4px;
+
+    font-size: $font-size-sm;
+    font-weight: 500;
+    color: $color-white;
+    white-space: nowrap;
+
+    background-color: $color-orange;
+    box-shadow: 1px 3px 16px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    transition:
+      background 0.25s ease,
+      transform 0.25s ease;
+
+    &:hover {
+      background-color: color.adjust($color-orange, $lightness: -8%);
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}

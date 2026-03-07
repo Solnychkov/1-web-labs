@@ -1,6 +1,7 @@
+@use "../../styles" as *;
+
 @use "./Slider" as *;
 @use "./Bottom" as *;
-@use "../../styles/abstracts/variables" as *;
 
 .hero {
   position: relative;

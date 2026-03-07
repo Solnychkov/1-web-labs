@@ -1,15 +1,29 @@
-@use "../../styles/abstracts/variables" as *;
-@use "../../styles/abstracts/mixins" as *;
+@use "../../styles" as *;
 
-@use "./burger" as *;
+@use "./Burger" as *;
+@use "./Triangles" as *;
+@use "./List" as *;
+@use "./Layout" as *;
+
+@keyframes navbar-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 .navbar {
+  // Base
   position: fixed;
   z-index: 999;
   width: 100%;
   height: 200px;
+
   background-color: $color-white;
-  overflow: hidden;
   clip-path: polygon(
     0 0,
     100% 0,
@@ -20,6 +34,10 @@
     0 60%
   );
 
+  transition:
+    clip-path 0.5s cubic-bezier(0.77, 0, 0.175, 1),
+    height 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+
   @include mobile {
     height: 120px;
     clip-path: polygon(
@@ -29,54 +47,19 @@
       calc(233 / 390) * 100% 100%,
       0 calc(105 / 120) * 100%
     );
-  }
 
-  &__triangle {
-    position: absolute;
-    background-color: $color-blue;
-    height: 100%;
-    width: 100%;
-
-    &--left {
-      clip-path: polygon(0 24%, 20% 83%, 0 100%);
-
-      @include mobile {
-        display: none;
-      }
-    }
-
-    &--right {
-      right: 0;
-      clip-path: polygon(57% 60%, 82% 55%, 100% 13.5%, 100% 100%, 58% 100%);
-
-      @include mobile {
-        clip-path: polygon(
-          calc(233 / 390) * 100% 100%,
-          100% calc(75 / 120) * 100%,
-          100% 100%
-        );
-      }
+    &--open {
+      height: 100vh;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%, 0 100%);
     }
   }
 
-  &__inner {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 40px;
-    z-index: 1;
-  }
-
-  &__right {
-    padding-top: 15px;
-    display: flex;
-    gap: 25px;
-    align-items: start;
-  }
-
+  // Logo
   &__logo {
     width: 244px;
     display: block;
+
+    animation: navbar-enter 0.5s ease 0.25s both;
 
     @include mobile {
       width: 172px;
@@ -88,53 +71,27 @@
     }
   }
 
-  &__list {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  &__link {
-    position: relative;
-    text-decoration: none;
-    color: $color-blue;
-    font-size: 16px;
-    white-space: nowrap;
-    font-weight: 00;
-    color: $color-blue;
-
-    &-line {
-      position: absolute;
-      bottom: -12px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: $color-orange;
-      transition: width 0.3s ease;
-    }
-
-    &--active,
-    &:hover {
-      .navbar__link-line {
-        width: 100%;
-      }
-    }
-  }
-
+  // Phone
   &__phone {
     color: $color-orange;
     font-size: 16px;
     font-weight: 600;
-    display: flex;
     white-space: nowrap;
-    transition: transform 0.3s ease-in-out;
+
     will-change: transform;
+    transition: transform 0.3s ease-in-out;
+
+    opacity: 0;
+    animation: navbar-enter 0.5s ease 0.55s both;
 
     &:hover {
       transform: scale(1.2);
+    }
+
+    @include mobile {
+      position: fixed;
+      left: 40px;
+      bottom: 20px;
     }
   }
 }

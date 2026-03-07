@@ -1,0 +1,16 @@
+@use "../../styles" as *;
+
+.navbar {
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 40px;
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+  }
+}
