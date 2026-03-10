@@ -74,7 +74,7 @@ export const HeroComponent = () => {
               key={slide.id}
               className={`hero__slide ${index === activeSlide ? "hero__slide--active" : ""}`}
               style={{
-                transform: `translateX(${(index - activeSlide) * 110}%)`,
+                transform: `translateX(calc(${(index - activeSlide) * 110}% + 5px))`,
               }}
               aria-hidden={index !== activeSlide}
             >
@@ -84,9 +84,9 @@ export const HeroComponent = () => {
               </div>
             </div>
           ))}
-
-          <button className="hero__cta">Заказать звонок</button>
         </div>
+
+        <button className="hero__cta">Заказать звонок</button>
 
         <img src={car} className="hero__car" alt="" aria-hidden="true" />
 

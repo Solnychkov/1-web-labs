@@ -1,3 +1,5 @@
+@use "./index" as *;
+
 @use "./base/reset" as *;
 @use "./base/fonts" as *;
 
@@ -10,5 +12,6 @@
 
 body {
   font-family: "Roboto", sans-serif;
-  background-color: black;
+  background-color: $color-white;
+  height: 2000px;
 }

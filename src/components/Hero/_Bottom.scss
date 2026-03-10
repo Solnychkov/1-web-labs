@@ -4,15 +4,15 @@
   &__bottom {
     position: relative;
     z-index: 40;
-
     height: 200px;
     width: 100%;
+
     clip-path: polygon(
       0 50%,
-      calc(390 / 1920) * 100% 50%,
-      calc(620 / 1920) * 100% 0,
-      calc(1 - 620 / 1920) * 100% 0,
-      calc(1 - 390 / 1920) * 100% 50%,
+      20.3125% 50%,
+      32.2917% 0,
+      67.7083% 0,
+      79.6875% 50%,
       100% 50%,
       100% 100%,
       0 100%
@@ -24,6 +24,27 @@
     gap: 70px;
 
     background-color: $color-white;
+
+    @include mobile {
+      height: 290px;
+
+      padding-bottom: 40px;
+
+      flex-direction: column;
+      justify-content: flex-end;
+      gap: 20px;
+
+      clip-path: polygon(
+        0 7.2414%,
+        20.5128% 7.2414%,
+        32.3077% 0,
+        70.7692% 0,
+        79.4872% 7.2414%,
+        100% 7.2414%,
+        100% 100%,
+        0 100%
+      );
+    }
   }
 
   &__info {
@@ -43,6 +64,16 @@
     &-label {
       font-weight: 900;
       padding-bottom: 5px;
+    }
+
+    &-icon {
+      min-width: 58px;
+    }
+
+    @include mobile {
+      gap: 20px;
+      max-width: 75%;
+      width: 285px;
     }
   }
 }

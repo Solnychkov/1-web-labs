@@ -67,6 +67,10 @@
         background-color: $color-white;
       }
     }
+
+    @include mobile {
+      display: none;
+    }
   }
 
   &__dots {
@@ -78,6 +82,10 @@
 
     display: flex;
     gap: 8px;
+
+    @include mobile {
+      display: none;
+    }
   }
 
   &__dot {

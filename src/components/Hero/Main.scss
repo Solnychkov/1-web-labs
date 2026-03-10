@@ -26,10 +26,10 @@
 
     pointer-events: none;
   }
-}
 
-@media (max-width: $breakpoint-mobile) {
-  .hero {
+  @include mobile {
     height: 970px;
+
+    justify-content: space-between;
   }
 }
