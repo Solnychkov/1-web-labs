@@ -1,0 +1,14 @@
+@use "../../styles" as *;
+
+@use "./Pumps" as *;
+
+.about {
+  position: relative;
+  height: 700px;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  background-color: $color-gray;
+}

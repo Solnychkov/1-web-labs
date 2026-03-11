@@ -1,0 +1,29 @@
+@use "../../styles" as *;
+
+.about {
+  &__pumps-wrapper {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+
+    &::before {
+      z-index: 2;
+      content: "";
+      position: absolute;
+      background-color: $color-blue;
+      width: 63%;
+      height: 43%;
+      right: 0;
+      bottom: 0;
+
+      clip-path: polygon(0% 100%, 100% 0, 100% 100%);
+    }
+  }
+
+  &__pumps {
+    display: block;
+    position: relative;
+    z-index: 1;
+  }
+}
