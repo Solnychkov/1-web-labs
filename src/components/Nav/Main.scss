@@ -1,9 +1,9 @@
 @use "../../styles" as *;
 
-@use "./Burger" as *;
-@use "./Triangles" as *;
-@use "./List" as *;
-@use "./Layout" as *;
+@use "Burger" as *;
+@use "Triangles" as *;
+@use "List" as *;
+@use "Layout" as *;
 
 @keyframes navbar-enter {
   from {

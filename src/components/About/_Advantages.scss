@@ -1,0 +1,33 @@
+@use "../../styles" as *;
+
+.about {
+  &__advantages {
+    display: flex;
+    justify-content: space-between;
+
+    @include mobile {
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+  }
+
+  &__item {
+    &-visual {
+      position: relative;
+    }
+
+    &-number {
+      position: absolute;
+      top: 25px;
+      left: 17px;
+    }
+
+    &-label {
+      font-weight: 900;
+
+      max-width: 190px;
+      margin-top: 15px;
+    }
+  }
+}

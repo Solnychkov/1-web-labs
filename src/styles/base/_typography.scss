@@ -3,13 +3,13 @@
 .section-title {
   font-size: $font-size-2xl;
   font-weight: 900;
-  color: $color-blue;
+  text-align: center;
 
   &::after {
     content: "";
     display: block;
 
-    margin-top: 28px;
+    margin: 28px auto 0;
     width: 100px;
     height: 3px;
 

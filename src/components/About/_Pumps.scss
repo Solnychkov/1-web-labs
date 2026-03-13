@@ -7,23 +7,26 @@
     right: 0;
     transform: translateY(-50%);
 
-    &::before {
-      z-index: 2;
-      content: "";
-      position: absolute;
-      background-color: $color-blue;
-      width: 63%;
-      height: 43%;
-      right: 0;
-      bottom: 0;
+    display: flex;
+    justify-content: flex-end;
+    pointer-events: none;
 
-      clip-path: polygon(0% 100%, 100% 0, 100% 100%);
+    width: 45%;
+
+    @include mobile {
+      position: relative;
+      bottom: 0;
+      transform: translateY(0);
+
+      width: 100%;
+
+      order: 2;
     }
   }
 
   &__pumps {
-    display: block;
-    position: relative;
-    z-index: 1;
+    max-width: 90%;
+    height: auto;
+    object-fit: contain;
   }
 }

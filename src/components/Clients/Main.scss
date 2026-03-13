@@ -1,0 +1,25 @@
+@use "../../styles" as *;
+
+.clients {
+  margin: 60px 0 120px;
+
+  @include mobile {
+    margin: 50px 0 80px;
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+
+    margin-top: 50px;
+
+    @include mobile {
+      flex-direction: column;
+      gap: 56px;
+
+      margin-top: 40px;
+    }
+  }
+}
