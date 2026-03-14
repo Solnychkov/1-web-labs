@@ -1,0 +1,76 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+
+  background-color: $color-white;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease 0.1s,
+    box-shadow 0.1s ease-in-out;
+
+  &::before,
+  &::after {
+    content: "";
+
+    position: absolute;
+    top: 50%;
+
+    width: 10px;
+    height: 2px;
+    border-radius: 2px;
+
+    background-color: $color-orange;
+  }
+
+  &--prev {
+    &::before {
+      left: 14px;
+      transform: translateY(-3px) rotate(-45deg);
+    }
+
+    &::after {
+      left: 14px;
+      transform: translateY(3px) rotate(45deg);
+    }
+  }
+
+  &--next {
+    &::before {
+      right: 13px;
+      transform: translateY(-3px) rotate(45deg);
+    }
+
+    &::after {
+      right: 13px;
+      transform: translateY(3px) rotate(-45deg);
+    }
+  }
+
+  &:hover {
+    background-color: $color-orange;
+
+    box-shadow: none;
+    transform: translateY(-40%);
+
+    &::before,
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+  @include mobile {
+    display: none;
+  }
+}

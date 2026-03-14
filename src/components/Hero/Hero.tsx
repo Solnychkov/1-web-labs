@@ -3,7 +3,7 @@ import background from "../../assets/images/Hero/Background.png";
 import mailIcon from "../../assets/images/Hero/Mail-icon.svg";
 import locationIcon from "../../assets/images/Hero/Location-icon.svg";
 import car from "../../assets/images/Hero/Car.png";
-import { useCallback, useEffect, useState } from "react";
+import { useSlider } from "../../hooks/useSlider";
 
 type TSlide = {
   id: number;
@@ -30,33 +30,12 @@ const slides: TSlide[] = [
 ];
 
 export const HeroComponent = () => {
-  const [activeSlide, setActiveSlide] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
-
-  const goTo = useCallback(
-    (index: number) => {
-      if (isAnimating) return;
-      setIsAnimating(true);
-      setActiveSlide(index);
-      setTimeout(() => setIsAnimating(false), 600);
-    },
-    [isAnimating],
-  );
-
-  const goPrev = useCallback(
-    () => goTo((activeSlide - 1 + slides.length) % slides.length),
-    [activeSlide, goTo],
-  );
-
-  const goNext = useCallback(
-    () => goTo((activeSlide + 1) % slides.length),
-    [activeSlide, goTo],
-  );
-
-  useEffect(() => {
-    const timer = setInterval(goNext, 5500);
-    return () => clearInterval(timer);
-  }, [goNext]);
+  const { activeIndex, goNext, goPrev, goTo } = useSlider({
+    totalSlides: slides.length,
+    initialIndex: 0,
+    autoPlayInterval: 5500,
+    animationDuration: 600,
+  });
 
   return (
     <section className="hero">
@@ -72,11 +51,11 @@ export const HeroComponent = () => {
           {slides.map((slide, index) => (
             <div
               key={slide.id}
-              className={`hero__slide ${index === activeSlide ? "hero__slide--active" : ""}`}
+              className={`hero__slide ${index === activeIndex ? "hero__slide--active" : ""}`}
               style={{
-                transform: `translateX(calc(${(index - activeSlide) * 110}% + 5px))`,
+                transform: `translateX(calc(${(index - activeIndex) * 110}% + 5px))`,
               }}
-              aria-hidden={index !== activeSlide}
+              aria-hidden={index !== activeIndex}
             >
               <div className="hero__text">
                 <h1 className="hero__title">{slide.title}</h1>
@@ -91,12 +70,12 @@ export const HeroComponent = () => {
         <img src={car} className="hero__car" alt="" aria-hidden="true" />
 
         <button
-          className="hero__arrow hero__arrow--prev"
+          className="arrow arrow--prev hero__arrow--prev"
           onClick={goPrev}
           aria-label="Предыдущий слайд"
         />
         <button
-          className="hero__arrow hero__arrow--next"
+          className="arrow arrow--next hero__arrow--next"
           onClick={goNext}
           aria-label="Следующий слайд"
         />
@@ -105,10 +84,10 @@ export const HeroComponent = () => {
           {slides.map((slide, index) => (
             <button
               key={slide.id}
-              className={`hero__dot ${index === activeSlide ? "hero__dot--active" : ""}`}
+              className={`hero__dot ${index === activeIndex ? "hero__dot--active" : ""}`}
               onClick={() => goTo(index)}
               role="tab"
-              aria-selected={index === activeSlide}
+              aria-selected={index === activeIndex}
               aria-label={`Слайд ${index + 1}`}
             />
           ))}

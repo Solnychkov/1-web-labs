@@ -1,0 +1,43 @@
+@use "../../styles" as *;
+
+.equipments {
+  &__tablist {
+    position: relative;
+    width: 100%;
+
+    background-color: $color-gray-soft;
+
+    display: flex;
+    justify-content: center;
+
+    margin: 32px 0 80px;
+  }
+
+  &__tab {
+    font-weight: 900;
+    font-size: $font-size-sm;
+
+    z-index: 2;
+
+    padding: 20px 28px;
+
+    cursor: pointer;
+
+    transition: color 0.2s ease-in-out 0.15s;
+    &--active {
+      color: $color-white;
+    }
+
+    &-indicator {
+      z-index: 1;
+      position: absolute;
+      bottom: 0;
+      height: 100%;
+      background-color: $color-orange;
+      transition:
+        left 0.3s ease,
+        width 0.3s ease;
+      pointer-events: none;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@use "../../styles" as *;
+
+.equipments__slide {
+  flex: 0 0 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &-title {
+    font-size: $font-size-lg;
+    font-weight: 900;
+
+    margin-bottom: 30px;
+  }
+
+  &-description {
+    white-space: pre-line;
+  }
+}

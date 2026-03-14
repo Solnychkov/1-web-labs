@@ -1,0 +1,57 @@
+@use "../../styles" as *;
+
+.equipments {
+  &__images {
+    position: relative;
+    flex: 0 0 35%;
+    margin-right: 50px;
+  }
+
+  &__image {
+    flex: 0 0 100%;
+
+    &-slider {
+      overflow: hidden;
+    }
+
+    &--prev {
+      left: -72px;
+    }
+    &--next {
+      right: -72px;
+    }
+
+    &-track {
+      display: flex;
+
+      transition: transform 0.4s ease-in-out;
+    }
+  }
+
+  &__dots {
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  &__dot {
+    width: 38px;
+    height: 6px;
+    border-radius: 20px 20px 0 0;
+
+    background-color: $color-gray-medium;
+    cursor: pointer;
+    transition:
+      background-color 0.3s ease,
+      width 0.3s ease;
+
+    &--active {
+      width: 48px;
+      background-color: $color-orange;
+    }
+  }
+}
