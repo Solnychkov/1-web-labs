@@ -1,7 +1,13 @@
+@use "../../styles" as *;
+
 .equipments {
   &__slider {
     width: 43%;
     overflow: hidden;
+
+    @include mobile {
+      width: 100%;
+    }
   }
 
   &__track {

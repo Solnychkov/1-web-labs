@@ -3,15 +3,33 @@
 .equipments {
   &__images {
     position: relative;
+
     flex: 0 0 35%;
     margin-right: 50px;
+
+    @include mobile {
+      margin: 0;
+    }
   }
 
   &__image {
     flex: 0 0 100%;
 
+    img {
+      margin-left: auto;
+
+      @include mobile {
+        margin: 0 auto;
+        max-height: 80%;
+      }
+    }
+
     &-slider {
       overflow: hidden;
+
+      @include mobile {
+        display: flex;
+      }
     }
 
     &--prev {
@@ -32,17 +50,23 @@
     position: absolute;
     bottom: -50px;
     left: 50%;
-    transform: translateX(-50%);
+
     display: flex;
     justify-content: center;
     gap: 8px;
+
+    transform: translateX(-50%);
+
+    @include mobile {
+      bottom: 0;
+    }
   }
 
   &__dot {
     width: 38px;
     height: 6px;
-    border-radius: 20px 20px 0 0;
 
+    border-radius: 20px 20px 0 0;
     background-color: $color-gray-medium;
     cursor: pointer;
     transition:
@@ -51,6 +75,7 @@
 
     &--active {
       width: 48px;
+
       background-color: $color-orange;
     }
   }

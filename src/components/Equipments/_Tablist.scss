@@ -3,36 +3,47 @@
 .equipments {
   &__tablist {
     position: relative;
-    width: 100%;
 
+    overflow: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    scrollbar-width: none;
     background-color: $color-gray-soft;
 
     display: flex;
     justify-content: center;
 
+    width: 100%;
     margin: 32px 0 80px;
+
+    @include mobile {
+      justify-content: flex-start;
+    }
   }
 
   &__tab {
     font-weight: 900;
     font-size: $font-size-sm;
+    text-wrap: nowrap;
+
+    padding: 20px 28px;
+    transition: color 0.2s ease-in-out 0.15s;
+    cursor: pointer;
 
     z-index: 2;
 
-    padding: 20px 28px;
-
-    cursor: pointer;
-
-    transition: color 0.2s ease-in-out 0.15s;
     &--active {
       color: $color-white;
     }
 
     &-indicator {
-      z-index: 1;
       position: absolute;
+      z-index: 1;
       bottom: 0;
+
       height: 100%;
+
       background-color: $color-orange;
       transition:
         left 0.3s ease,
