@@ -1,0 +1,78 @@
+@use "../../styles" as *;
+
+.advantages {
+  &__cards {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: -90px;
+    z-index: 10;
+
+    @include mobile {
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 24px;
+
+      margin-bottom: -150px;
+    }
+  }
+
+  &__card {
+    width: 32%;
+    padding: 32px;
+    border-radius: 8px;
+    min-height: 445px;
+    background-color: $color-white;
+
+    @include mobile {
+      min-height: 380px;
+      width: 100%;
+    }
+
+    &-header {
+      display: flex;
+      position: relative;
+    }
+
+    &-badge {
+      position: relative;
+    }
+
+    &-star {
+      width: 74px;
+      height: 90px;
+    }
+
+    &-number {
+      position: absolute;
+      transform: translate(40%, -50%);
+      top: 50%;
+      right: 50%;
+    }
+
+    &-icon {
+      z-index: 2;
+      transform: translateY(-50%);
+      left: 64px;
+      top: 50%;
+      width: initial;
+      height: initial;
+      position: absolute;
+    }
+
+    &-title {
+      margin: 40px 0 16px;
+      font-size: $font-size-lg;
+      text-align: start;
+      &::after {
+        margin: 16px 0 0;
+      }
+    }
+
+    &-description {
+      font-size: $font-size-sm;
+    }
+  }
+}
