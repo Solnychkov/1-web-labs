@@ -6,6 +6,8 @@ import { AboutComponent } from "./components/About/About";
 import { ClientsComponent } from "./components/Clients/Clients";
 import { EquipmentsComponent } from "./components/Equipments/Equipments";
 import { AdvantagesComponent } from "./components/Advantages/Advantages";
+import { CallbackComponent } from "./components/Callback/Callback";
+import { MapComponent } from "./components/Map/Map";
 
 export const App = () => {
   return (
@@ -16,6 +18,8 @@ export const App = () => {
       <EquipmentsComponent />
       <AdvantagesComponent />
       <ClientsComponent />
+      <CallbackComponent />
+      <MapComponent />
     </div>
   );
 };

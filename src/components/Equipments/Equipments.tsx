@@ -76,7 +76,7 @@ export const EquipmentsComponent = () => {
   return (
     <section className="equipments">
       <div className="container">
-        <h2 className="section-title">Наше оборудование</h2>
+        <h2 className="section__title">Наше оборудование</h2>
         <div
           className="equipments__tablist"
           role="tablist"

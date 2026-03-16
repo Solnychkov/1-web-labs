@@ -1,0 +1,27 @@
+@use "../../styles" as *;
+
+.map {
+  margin: 16px 0 40px;
+
+  &__img {
+    margin: 0 auto;
+  }
+
+  &__list {
+    display: none;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    list-style: disc;
+    justify-content: center;
+
+    padding-left: 25px;
+    margin-top: 20px;
+    @include mobile {
+      display: grid;
+    }
+
+    li {
+    }
+  }
+}

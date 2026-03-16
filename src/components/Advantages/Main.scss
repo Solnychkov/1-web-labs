@@ -1,33 +1,73 @@
 @use "../../styles" as *;
 
 @use "Cards" as *;
-@use "Container" as *;
+@use "Bottom" as *;
 
 .advantages {
-  &__title {
-    margin: 0px 0 50px;
+  position: relative;
 
-    color: $color-white;
+  &__background {
+    position: relative;
+    z-index: 0;
+
+    width: 100%;
+
+    pointer-events: none;
 
     @include mobile {
-      margin: 40px auto 32px;
-      width: min-content; /* Блок сожмется до ширины самого длинного слова */
-      white-space: normal; /* Разрешаем обычный перенос */
-      word-break: normal;
+      height: 1275px;
+    }
+
+    &-image {
+      width: 100%;
+      height: 583px;
+
+      object-fit: cover;
+      object-position: center;
+    }
+
+    &-overlay {
+      display: none;
+      content: "";
+
+      position: absolute;
+      top: 490px;
+
+      width: 100%;
+      height: calc(1275px - 490px);
+
+      background-color: $color-blue;
+      clip-path: polygon(0 35px, 28% 70px, 73% 0, 100% 35px, 100% 100%, 0 100%);
+
+      @include mobile {
+        display: block;
+      }
     }
   }
 
-  &__decor {
-    position: relative;
+  &__content {
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
+    top: 110px;
+    z-index: 10;
+
     width: 100%;
-    height: 800px;
-    background-color: $color-blue;
-    margin-top: -100px;
-    z-index: 3;
-    display: none;
 
     @include mobile {
-      display: block;
+      top: 40px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 50px;
+
+    @include mobile {
+      margin: 0 auto;
+
+      width: min-content;
+      white-space: normal;
+      word-break: normal;
     }
   }
 }

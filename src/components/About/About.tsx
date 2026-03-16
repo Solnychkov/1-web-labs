@@ -41,7 +41,7 @@ export const AboutComponent = () => {
       </div>
       <div className="container about__inner">
         <article className="about__content">
-          <h2 className="section-title about__title">О компании</h2>
+          <h2 className="section__title about__title">О компании</h2>
           <div className="about__description">
             <p>
               Уже более 8 лет специалисты компании Сахара Груп решают задачи

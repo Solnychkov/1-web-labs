@@ -1,7 +1,5 @@
 import "./Main.scss";
 
-import background from "../../assets/images/Advantages/Background.jpg";
-
 import iconStar from "../../assets/images/Advantages/icon-star.svg";
 
 import iconNumberOne from "../../assets/images/Advantages/icon-number-1.svg";
@@ -11,6 +9,8 @@ import iconNumberThree from "../../assets/images/Advantages/icon-number-3.svg";
 import iconCardOne from "../../assets/images/Advantages/icon-card-1.png";
 import iconCardTwo from "../../assets/images/Advantages/icon-card-2.png";
 import iconCardThree from "../../assets/images/Advantages/icon-card-3.png";
+
+import background from "../../assets/images/Advantages/Background.jpg";
 
 interface cardItem {
   title: string;
@@ -48,26 +48,44 @@ const cards: readonly cardItem[] = [
 
 export const AdvantagesComponent = () => {
   return (
-    <section className="advantages">
+    <section className="advantages" aria-labelledby="advantages-heading">
+      <div className="advantages__background" aria-hidden="true">
+        <img className="advantages__background-image" src={background} />
+        <div className="advantages__background-overlay" />
+      </div>
+
       <div className="advantages__content">
         <div className="container">
-          <h1 className="section-title advantages__title">Наши преимущества</h1>
-          <div className="advantages__cards">
+          <h1 className="section__title section__title--white advantages__title">
+            Наши преимущества
+          </h1>
+          <div className="advantages__cards" role="list">
             {cards.map((card, index) => (
-              <article className="advantages__card" key={index}>
+              <article className="advantages__card" key={index} role="listitem">
                 <div className="advantages__card-header">
                   <div className="advantages__card-badge">
-                    <img className="advantages__card-star" src={iconStar} />
+                    <img
+                      className="advantages__card-star"
+                      src={iconStar}
+                      alt=""
+                      aria-hidden="true"
+                    />
                     <img
                       className="advantages__card-number"
                       src={card.iconNumber.src}
                       alt={`${card.iconNumber.alt}`}
                     />
                   </div>
-                  <img src={card.icon} className="advantages__card-icon" />
+                  <img
+                    className="advantages__card-icon"
+                    src={card.icon}
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
                 <div className="advantages__card-body">
-                  <h2 className="section-title advantages__card-title">
+                  <h2 className="section__title advantages__card-title">
                     {card.title}
                   </h2>
                   <p className="advantages__card-description">
@@ -81,8 +99,14 @@ export const AdvantagesComponent = () => {
       </div>
 
       <div className="advantages__bottom">
-        <div className="advantages__bottom-element advantages__bottom--first" />
-        <div className="advantages__bottom-element advantages__bottom--second" />
+        <div
+          className="advantages__bottom-element advantages__bottom--first"
+          aria-hidden="true"
+        />
+        <div
+          className="advantages__bottom-element advantages__bottom--second"
+          aria-hidden="true"
+        />
       </div>
     </section>
   );

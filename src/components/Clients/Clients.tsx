@@ -20,7 +20,7 @@ const clients: readonly clientItem[] = [
 export const ClientsComponent = () => {
   return (
     <section className="clients">
-      <h2 className="section-title">Заказчики</h2>
+      <h2 className="section__title">Заказчики</h2>
       <div className="clients__inner">
         {clients.map((client, index) => (
           <div className="clients__item">

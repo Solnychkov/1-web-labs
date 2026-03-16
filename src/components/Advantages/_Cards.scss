@@ -3,11 +3,10 @@
 .advantages {
   &__cards {
     position: relative;
+    z-index: 10;
+
     display: flex;
     justify-content: space-between;
-    width: 100%;
-    margin-bottom: -90px;
-    z-index: 10;
 
     @include mobile {
       flex-direction: column;
@@ -15,24 +14,26 @@
       justify-content: flex-start;
       gap: 24px;
 
-      margin-bottom: -150px;
+      top: 32px;
     }
   }
 
   &__card {
     width: 32%;
+    min-height: 445px;
+
     padding: 32px;
     border-radius: 8px;
-    min-height: 445px;
     background-color: $color-white;
 
     @include mobile {
-      min-height: 380px;
       width: 100%;
+      min-height: 380px;
     }
 
     &-header {
       display: flex;
+
       position: relative;
     }
 
@@ -54,25 +55,21 @@
 
     &-icon {
       z-index: 2;
-      transform: translateY(-50%);
-      left: 64px;
-      top: 50%;
-      width: initial;
-      height: initial;
       position: absolute;
+      transform: translateY(-50%);
+      top: 50%;
+      left: 64px;
     }
 
     &-title {
-      margin: 40px 0 16px;
       font-size: $font-size-lg;
       text-align: start;
+
+      margin: 40px 0 16px;
+
       &::after {
         margin: 16px 0 0;
       }
-    }
-
-    &-description {
-      font-size: $font-size-sm;
     }
   }
 }

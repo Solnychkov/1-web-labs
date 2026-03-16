@@ -1,0 +1,51 @@
+@use "../../styles" as *;
+
+@use "Form" as *;
+
+.callback {
+  position: relative;
+
+  padding: 100px 0 150px;
+  background: url("../../assets/images/Callback/Background.jpg") center / cover
+    no-repeat;
+
+  @include mobile {
+    padding: 40px 0 90px;
+  }
+
+  &::before {
+    content: "";
+
+    width: 100%;
+    height: 152px;
+
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+
+    background-color: $color-white;
+    clip-path: polygon(
+      0 122px,
+      25% 42px,
+      50% 92px,
+      75% 0,
+      100% 102px,
+      100% 100%,
+      0 100%
+    );
+
+    @include mobile {
+      height: 66px;
+
+      clip-path: polygon(
+        0 32px,
+        15% 17px,
+        52% 40px,
+        90% 0,
+        100% 13px,
+        100% 100%,
+        0 100%
+      );
+    }
+  }
+}
