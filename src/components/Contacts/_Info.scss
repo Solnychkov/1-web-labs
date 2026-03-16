@@ -1,0 +1,35 @@
+@use "../../styles" as *;
+
+.contacts {
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    color: $color-white;
+  }
+
+  &__panel {
+    padding: 40px;
+
+    &-note {
+      opacity: 0.8;
+      font-size: $font-size-xs;
+      color: $color-gray-soft;
+    }
+
+    &--first {
+      flex: 0 0 71%;
+
+      background-color: $color-orange;
+    }
+
+    &--second {
+      flex: 0 0 26%;
+
+      background-color: $color-gray-hard;
+
+      align-self: end;
+    }
+  }
+}

@@ -44,18 +44,18 @@ export const CallbackComponent = () => {
               className="callback__form-input"
               required
             />
-            <div className="callback__policy">
-              <p className="callback__policy-text">
+            <div className="policy">
+              <p className="policy__text">
                 Я даю свое согласие на обработку моей персональной информации в
                 соответствии с{" "}
-                <a href="#" className="callback__policy-link">
+                <a href="#" className="policy__link">
                   политикой конфиденциальности
                 </a>
               </p>
             </div>
           </div>
 
-          <button type="submit" className="callback__form-submit">
+          <button type="submit" className="form__submit">
             Отправить запрос
           </button>
         </form>

@@ -17,11 +17,9 @@
 
     padding-left: 25px;
     margin-top: 20px;
+
     @include mobile {
       display: grid;
-    }
-
-    li {
     }
   }
 }

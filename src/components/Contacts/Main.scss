@@ -1,0 +1,25 @@
+@use "../../styles" as *;
+
+@use "Info" as *;
+@use "Form" as *;
+
+.contacts {
+  background: url("../../assets/images/Contacts/Background.jpg") top left /
+    cover no-repeat;
+
+  &__title {
+    padding: 80px 0 50px;
+  }
+
+  &__content {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 37.5% 58.8%;
+    justify-content: space-between;
+
+    background-color: $color-white;
+    border-radius: 8px;
+    padding: 60px;
+  }
+}

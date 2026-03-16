@@ -10,6 +10,44 @@
   padding: 0 20px;
 }
 
+.form__submit {
+  padding: 12px 40px;
+
+  background-color: $color-orange;
+  color: $color-white;
+
+  cursor: pointer;
+  transition:
+    transform 0.2s ease-in-out,
+    box-shadow 0.1s ease-in-out;
+
+  box-shadow: 0px 4px 4px rgb(0, 0, 0, 0.8);
+  border-radius: 4px;
+
+  &:hover {
+    transform: translateY(10px);
+    box-shadow: none;
+  }
+}
+
+.policy {
+  margin-top: 8px;
+
+  &__text {
+    font-size: $font-size-xs;
+    color: $color-white;
+    opacity: 0.8;
+  }
+
+  &__link {
+    transition: color 0.2s ease-in-out;
+
+    &:hover {
+      color: $color-orange;
+    }
+  }
+}
+
 body {
   font-family: "Roboto", sans-serif;
   background-color: $color-white;
