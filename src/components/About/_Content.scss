@@ -10,6 +10,10 @@
     p + p {
       margin-top: 1.5rem;
     }
+
+    p {
+      @include scroll-reveal("left", 30px, 10%, 15%);
+    }
   }
 
   &__content {

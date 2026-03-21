@@ -29,5 +29,15 @@
       max-width: 190px;
       margin-top: 15px;
     }
+
+    &:nth-child(1) {
+      @include scroll-reveal("bottom", 30px, 15%, 20%);
+    }
+    &:nth-child(2) {
+      @include scroll-reveal("bottom", 50px, 20%, 25%);
+    }
+    &:nth-child(3) {
+      @include scroll-reveal("bottom", 60px, 23%, 24%);
+    }
   }
 }

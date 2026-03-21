@@ -1,9 +1,12 @@
 @use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
 
 .section__title {
   font-size: $font-size-2xl;
   font-weight: 700;
   text-align: center;
+
+  @include scroll-reveal("top", 40px, 10%, 20%);
 
   &::after {
     content: "";
@@ -14,6 +17,7 @@
     height: 3px;
 
     background-color: $color-orange;
+    @include scroll-reveal("bottom", 40px, 10%, 20%);
   }
 
   &--white {

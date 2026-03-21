@@ -2,10 +2,22 @@
 
 .contacts {
   &__form {
+    flex: 0 0 59%;
     width: 100%;
+
+    @include scroll-reveal("right", 40px, 6%, 20%);
+
+    @include mobile {
+      // flex: 0 0 100%;
+    }
 
     &-title {
       margin-bottom: 32px;
+
+      @include mobile {
+        color: $color-white;
+        margin-bottom: 24px;
+      }
     }
 
     &-row {
@@ -24,6 +36,10 @@
     &-label {
       font-size: $font-size-xs;
 
+      @include mobile {
+        color: $color-white;
+      }
+
       &--tel span {
         color: $color-orange;
       }
@@ -31,6 +47,11 @@
 
     &-policy p {
       color: $color-blue;
+
+      @include mobile {
+        color: $color-white;
+        opacity: 0.8;
+      }
     }
 
     &-input,
@@ -53,8 +74,16 @@
       height: 130px;
 
       resize: none;
+    }
 
-      margin-bottom: 15px;
+    &-submit {
+      margin-top: 16px;
+
+      @include scroll-reveal("top", 20px, 10%, 12%);
+
+      @include mobile {
+        margin-bottom: 40px;
+      }
     }
   }
 }

@@ -67,7 +67,15 @@
     }
 
     &-icon {
-      min-width: 58px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      width: 58px;
+      height: 58px;
+
+      background-color: $color-orange;
+      border-radius: 100%;
     }
 
     @include mobile {

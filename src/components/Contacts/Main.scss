@@ -2,24 +2,79 @@
 
 @use "Info" as *;
 @use "Form" as *;
+@use "Bottom" as *;
 
 .contacts {
-  background: url("../../assets/images/Contacts/Background.jpg") top left /
-    cover no-repeat;
+  position: relative;
+  width: 100%;
+
+  &::before {
+    content: "";
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 48%;
+
+    background-color: $color-blue;
+
+    @include mobile {
+      height: 72.5%;
+      clip-path: polygon(0 30px, 28% 60px, 73% 0, 100% 30px, 100% 100%, 0 100%);
+    }
+  }
+
+  &__background {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+
+    width: 100%;
+    height: 52%;
+
+    @include mobile {
+      height: 33.5%;
+    }
+
+    &-img {
+      object-fit: cover;
+      object-position: center;
+      height: 100%;
+    }
+  }
 
   &__title {
+    position: relative;
+    z-index: 2;
     padding: 80px 0 50px;
+
+    @include mobile {
+      padding: 40px 0 32px;
+    }
   }
 
   &__content {
+    position: relative;
+    z-index: 2;
     width: 100%;
 
-    display: grid;
-    grid-template-columns: 37.5% 58.8%;
+    display: flex;
+
     justify-content: space-between;
 
     background-color: $color-white;
     border-radius: 8px;
     padding: 60px;
+
+    @include mobile {
+      flex-direction: column;
+      gap: 40px;
+
+      background-color: initial;
+      border-radius: none;
+      padding: 0;
+    }
   }
 }

@@ -1,8 +1,18 @@
 import "./Main.scss";
 
+import iconMail from "../../assets/images/Generally/icon-mail.svg";
+import iconGeo from "../../assets/images/Generally/icon-geo.svg";
+
+import Logo from "../../assets/images/Contacts/Logo.svg";
+import Background from "../../assets/images/Contacts/Background.jpg";
+
 export const ContactsComponent = () => {
   return (
     <section className="contacts">
+      <div className="contacts__background">
+        <img src={Background} alt="" className="contacts__background-img" />
+      </div>
+
       <div className="section__title section__title--white contacts__title">
         Контакты
       </div>
@@ -12,19 +22,28 @@ export const ContactsComponent = () => {
           <aside className="contacts__info">
             <div className="contacts__panel contacts__panel--first">
               <div className="contacts__panel-item">
+                <div className="contacts__panel-icon">
+                  <img src={iconMail} alt="" />
+                </div>
                 <h3 className="contacts__panel-label">Связь с нами</h3>
-                <a href="tel:88006001505" className="contacts__panel-link">
-                  8 800 600-15-05
-                </a>
-                <a
-                  href="mailto:office@sahara-group.ru"
-                  className="contacts__panel-link"
-                >
-                  office@sahara-group.ru
-                </a>
+
+                <div className="contacts__panel-info">
+                  <a href="tel:88006001505" className="contacts__panel-link">
+                    8 800 600-15-05
+                  </a>
+                  <a
+                    href="mailto:office@sahara-group.ru"
+                    className="contacts__panel-link"
+                  >
+                    office@sahara-group.ru
+                  </a>
+                </div>
               </div>
 
               <div className="contacts__panel-item">
+                <div className="contacts__panel-icon">
+                  <img src={iconGeo} alt="" />
+                </div>
                 <h3 className="contacts__panel-label">Наша локация</h3>
                 <address className="contacts__panel-info">
                   Ленинградская область, Новоприозерское ш. 11 км. Трасса А-121
@@ -85,6 +104,11 @@ export const ContactsComponent = () => {
               Отправить
             </button>
           </form>
+        </div>
+
+        <div className="contacts__bottom">
+          <div className="contacts__bottom-date">2015 — 2023 г.</div>
+          <img src={Logo} alt="" />
         </div>
       </div>
     </section>

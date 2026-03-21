@@ -31,6 +31,16 @@
       min-height: 380px;
     }
 
+    &:nth-child(1) {
+      @include scroll-reveal("bottom", 30px, 20%, 26%);
+    }
+    &:nth-child(2) {
+      @include scroll-reveal("bottom", 50px, 26%, 30%);
+    }
+    &:nth-child(3) {
+      @include scroll-reveal("bottom", 60px, 30%, 33%);
+    }
+
     &-header {
       display: flex;
 

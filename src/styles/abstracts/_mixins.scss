@@ -1,7 +1,40 @@
+@use "sass:string";
+
 @use "./variables" as *;
 
 @mixin mobile {
   @media (max-width: $breakpoint-mobile) {
     @content;
   }
+}
+
+@mixin scroll-reveal($dir: "bottom", $dist: 20px, $start: 3%, $end: 10%) {
+  $name: reveal-#{string.unique-id()};
+
+  @keyframes #{$name} {
+    from {
+      opacity: 0;
+      @if $dir == "top" {
+        transform: translateY(-$dist);
+      }
+      @if $dir == "bottom" {
+        transform: translateY($dist);
+      }
+      @if $dir == "left" {
+        transform: translateX(-$dist);
+      }
+      @if $dir == "right" {
+        transform: translateX($dist);
+      }
+    }
+    to {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+  }
+
+  animation: #{$name} linear both;
+  animation-timeline: view();
+
+  animation-range: entry #{$start} cover #{$end};
 }

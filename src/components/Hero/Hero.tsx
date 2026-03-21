@@ -1,9 +1,11 @@
-import "./Main.scss";
-import background from "../../assets/images/Hero/Background.png";
-import mailIcon from "../../assets/images/Hero/Mail-icon.svg";
-import locationIcon from "../../assets/images/Hero/Location-icon.svg";
-import car from "../../assets/images/Hero/Car.png";
 import { useSlider } from "../../hooks/useSlider";
+
+import "./Main.scss";
+
+import background from "../../assets/images/Hero/Background.png";
+import mailIcon from "../../assets/images/Generally/icon-mail.svg";
+import locationIcon from "../../assets/images/Generally/icon-geo.svg";
+import car from "../../assets/images/Hero/Car.png";
 
 type TSlide = {
   id: number;
