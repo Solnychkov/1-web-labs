@@ -4,12 +4,12 @@ import { useSlider } from "../../hooks/useSlider";
 import imgEquipment from "../../assets/images/Equipments/Equipment.png";
 import { useEffect, useRef, useState } from "react";
 
-interface slideItem {
+interface SlideItem {
   title: string;
   description: string;
 }
 
-const slides: readonly slideItem[] = [
+const slides: readonly SlideItem[] = [
   {
     title: "BA100K D193",
     description:
@@ -61,7 +61,7 @@ export const EquipmentsComponent = () => {
   const tabListRef = useRef<HTMLDivElement>(null);
   const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 });
 
-  useEffect(() => {
+  const updateIndicator = () => {
     if (tabListRef.current) {
       const activeTab = tabListRef.current.querySelector<HTMLButtonElement>(
         `.equipments__tab--active`,
@@ -71,7 +71,17 @@ export const EquipmentsComponent = () => {
         setIndicatorStyle({ left: offsetLeft, width: offsetWidth });
       }
     }
+  };
+
+  useEffect(() => {
+    updateIndicator();
   }, [activeSlideIndex]);
+
+  useEffect(() => {
+    document.fonts.ready.then(updateIndicator);
+    window.addEventListener("resize", updateIndicator);
+    return () => window.removeEventListener("resize", updateIndicator);
+  }, []);
 
   return (
     <section className="equipments">
@@ -85,7 +95,7 @@ export const EquipmentsComponent = () => {
         >
           {slides.map((slide, index) => (
             <button
-              className={`equipments__tab ${index == activeSlideIndex ? "equipments__tab--active" : ""}`}
+              className={`equipments__tab ${index === activeSlideIndex ? "equipments__tab--active" : ""}`}
               onClick={() => goToSlide(index)}
               key={index}
             >
@@ -132,7 +142,7 @@ export const EquipmentsComponent = () => {
               >
                 {images.map((image, index) => (
                   <div className="equipments__image" key={index}>
-                    <img src={image} />
+                    <img src={image} alt="Оборудование" />
                   </div>
                 ))}
               </div>

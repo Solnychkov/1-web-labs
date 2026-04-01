@@ -4,13 +4,13 @@ export const CallbackComponent = () => {
   return (
     <section className="callback">
       <div className="container callback__container">
-        <h1 className="section__title section__title--white callback__title">
+        <h2 className="section__title section__title--white callback__title">
           Закажите консультацию, расчет стоимости работ или выезд специалиста на
           объект
-        </h1>
+        </h2>
         <form action="#" className="callback__form">
           <div className="callback__form-group">
-            <label form="name" className="callback__form-label">
+            <label htmlFor="name" className="callback__form-label">
               Ваше имя
             </label>
             <input
@@ -22,7 +22,7 @@ export const CallbackComponent = () => {
           </div>
 
           <div className="callback__form-group">
-            <label form="company" className="callback__form-label">
+            <label htmlFor="company" className="callback__form-label">
               Название компании
             </label>
             <input
@@ -34,7 +34,7 @@ export const CallbackComponent = () => {
           </div>
 
           <div className="callback__form-group">
-            <label form="phone" className="callback__form-label">
+            <label htmlFor="phone" className="callback__form-label">
               Телефон *
             </label>
             <input

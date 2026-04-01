@@ -22,6 +22,17 @@
   }
 }
 
+@keyframes link-leave-mobile {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+}
+
 .navbar {
   &__list {
     display: flex;
@@ -59,8 +70,13 @@
     }
 
     @include mobile {
-      opacity: 1;
-      animation: none;
+      animation: link-leave-mobile 0.25s ease both;
+
+      @for $i from 1 through 5 {
+        &:nth-child(#{$i}) {
+          animation-delay: #{(5 - $i) * 0.04}s;
+        }
+      }
 
       .navbar--open & {
         animation: link-enter-mobile 0.35s ease both;

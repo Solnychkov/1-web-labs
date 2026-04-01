@@ -12,7 +12,7 @@ import { ContactsComponent } from "./components/Contacts/Contacts";
 
 export const App = () => {
   return (
-    <div>
+    <main>
       <NavComponent />
       <HeroComponent />
       <AboutComponent />
@@ -22,6 +22,6 @@ export const App = () => {
       <CallbackComponent />
       <MapComponent />
       <ContactsComponent />
-    </div>
+    </main>
   );
 };

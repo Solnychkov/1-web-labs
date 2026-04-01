@@ -12,7 +12,7 @@ import iconCardThree from "../../assets/images/Advantages/icon-card-3.png";
 
 import background from "../../assets/images/Advantages/Background.jpg";
 
-interface cardItem {
+interface CardItem {
   title: string;
   description: string;
   icon: string;
@@ -22,7 +22,7 @@ interface cardItem {
   };
 }
 
-const cards: readonly cardItem[] = [
+const cards: readonly CardItem[] = [
   {
     title: "Работаем по всей России",
     description:
@@ -50,15 +50,15 @@ export const AdvantagesComponent = () => {
   return (
     <section className="advantages" aria-labelledby="advantages-heading">
       <div className="advantages__background" aria-hidden="true">
-        <img className="advantages__background-image" src={background} />
+        <img className="advantages__background-image" src={background} alt="" />
         <div className="advantages__background-overlay" />
       </div>
 
       <div className="advantages__content">
         <div className="container">
-          <h1 className="section__title section__title--white advantages__title">
+          <h2 className="section__title section__title--white advantages__title">
             Наши преимущества
-          </h1>
+          </h2>
           <div className="advantages__cards" role="list">
             {cards.map((card, index) => (
               <article className="advantages__card" key={index} role="listitem">

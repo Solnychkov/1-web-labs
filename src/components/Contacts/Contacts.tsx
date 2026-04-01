@@ -13,9 +13,9 @@ export const ContactsComponent = () => {
         <img src={Background} alt="" className="contacts__background-img" />
       </div>
 
-      <div className="section__title section__title--white contacts__title">
+      <h2 className="section__title section__title--white contacts__title">
         Контакты
-      </div>
+      </h2>
 
       <div className="container">
         <div className="contacts__content">
@@ -65,22 +65,22 @@ export const ContactsComponent = () => {
 
             <div className="contacts__form-row">
               <div className="contacts__form-field">
-                <label className="contacts__form-label">Ваше имя</label>
-                <input type="text" className="contacts__form-input" />
+                <label htmlFor="contact-name" className="contacts__form-label">Ваше имя</label>
+                <input type="text" id="contact-name" className="contacts__form-input" />
               </div>
               <div className="contacts__form-field">
-                <label className="contacts__form-label">
+                <label htmlFor="contact-company" className="contacts__form-label">
                   Название компании
                 </label>
-                <input type="text" className="contacts__form-input" />
+                <input type="text" id="contact-company" className="contacts__form-input" />
               </div>
             </div>
 
             <div className="contacts__form-field">
-              <label className="contacts__form-label contacts__form-label--tel">
+              <label htmlFor="contact-phone" className="contacts__form-label contacts__form-label--tel">
                 Телефон <span>*</span>
               </label>
-              <input type="tel" className="contacts__form-input" required />
+              <input type="tel" id="contact-phone" className="contacts__form-input" required />
               <div className="policy contacts__form-policy">
                 <p className="policy__text">
                   Я даю свое согласие на обработку моей персональной информации
@@ -93,8 +93,8 @@ export const ContactsComponent = () => {
             </div>
 
             <div className="contacts__form-field">
-              <label className="contacts__form-label">Комментарий</label>
-              <textarea className="contacts__form-textarea"></textarea>
+              <label htmlFor="contact-comment" className="contacts__form-label">Комментарий</label>
+              <textarea id="contact-comment" className="contacts__form-textarea"></textarea>
             </div>
 
             <button

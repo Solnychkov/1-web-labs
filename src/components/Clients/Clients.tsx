@@ -5,12 +5,12 @@ import iconMegameid from "../../assets/images/Clients/logo-Megameid.jpg";
 import iconTehnomet from "../../assets/images/Clients/logo-Tehnomet.jpg";
 import iconCTIC from "../../assets/images/Clients/logo-CTIC.jpg";
 
-interface clientItem {
+interface ClientItem {
   logo: string;
   alt: string;
 }
 
-const clients: readonly clientItem[] = [
+const clients: readonly ClientItem[] = [
   { logo: iconAarsleff, alt: "AARSLEFF" },
   { logo: iconMegameid, alt: "Мегамейд" },
   { logo: iconTehnomet, alt: "Техномет" },
@@ -23,8 +23,8 @@ export const ClientsComponent = () => {
       <h2 className="section__title">Заказчики</h2>
       <div className="clients__inner">
         {clients.map((client, index) => (
-          <div className="clients__item">
-            <img key={index} src={client.logo} alt={client.alt} />
+          <div className="clients__item" key={index}>
+            <img src={client.logo} alt={client.alt} />
           </div>
         ))}
       </div>

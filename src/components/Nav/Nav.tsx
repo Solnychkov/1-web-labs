@@ -51,7 +51,7 @@ export const NavComponent = () => {
             <nav className="navbar__nav" aria-label="Основная навигация">
               <ul
                 className="navbar__list"
-                key={isOpen ? "open" : "closed"}
+
                 role="list"
               >
                 {NAV_ITEMS.map((item) => (
