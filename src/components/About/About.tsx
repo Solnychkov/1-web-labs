@@ -29,7 +29,7 @@ const ADVANTAGE_ITEMS: readonly AdvantageItem[] = [
 
 export const AboutComponent = () => {
   return (
-    <section className="about">
+    <section className="about" id="about">
       <div className="about__pumps-wrapper">
         <img
           className="about__pumps"

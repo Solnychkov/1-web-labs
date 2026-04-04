@@ -26,9 +26,16 @@ export const NavComponent = () => {
     };
   }, [isOpen]);
 
-  const handleLinkClick = (href: string) => {
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
     setActiveHref(href);
     setIsOpen(false);
+
+    const id = href.replace("#", "");
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -59,7 +66,7 @@ export const NavComponent = () => {
                     <a
                       href={item.href}
                       className={`navbar__link ${activeHref === item.href ? "navbar__link--active" : ""}`}
-                      onClick={() => handleLinkClick(item.href)}
+                      onClick={(e) => handleLinkClick(e, item.href)}
                       aria-current={
                         activeHref === item.href ? "page" : undefined
                       }

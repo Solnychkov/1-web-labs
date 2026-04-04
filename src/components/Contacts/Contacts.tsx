@@ -8,7 +8,7 @@ import Background from "../../assets/images/Contacts/Background.jpg";
 
 export const ContactsComponent = () => {
   return (
-    <section className="contacts">
+    <section className="contacts" id="contacts">
       <div className="contacts__background">
         <img src={Background} alt="" className="contacts__background-img" />
       </div>

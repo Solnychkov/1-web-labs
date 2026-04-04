@@ -48,7 +48,7 @@ const cards: readonly CardItem[] = [
 
 export const AdvantagesComponent = () => {
   return (
-    <section className="advantages" aria-labelledby="advantages-heading">
+    <section className="advantages" id="advantages" aria-labelledby="advantages-heading">
       <div className="advantages__background" aria-hidden="true">
         <img className="advantages__background-image" src={background} alt="" />
         <div className="advantages__background-overlay" />

@@ -5,7 +5,7 @@ import mapDesktop from "../../assets/images/Map/Map-desktop.png";
 
 export const MapComponent = () => {
   return (
-    <section className="map">
+    <section className="map" id="objects">
       <h2 className="section__title">Наши объекты</h2>
       <picture>
         <source media="(max-width: 600px)" srcSet={mapMobile} />

@@ -84,7 +84,7 @@ export const EquipmentsComponent = () => {
   }, []);
 
   return (
-    <section className="equipments">
+    <section className="equipments" id="equipments">
       <div className="container">
         <h2 className="section__title">Наше оборудование</h2>
         <div
